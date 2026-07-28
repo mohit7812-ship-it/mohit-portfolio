@@ -1,0 +1,143 @@
+/* ==========================================================================
+   V T Mohit — Portfolio theme (matches Kang Outsourcing tokens)
+   ========================================================================== */
+:root {
+  --navy-950: #060a13;
+  --navy-900: #0b1220;
+  --navy-800: #101a2e;
+  --blue-500: #2451c4;
+  --gold-500: #d4af37;
+  --gold-300: #f0cd6f;
+  --ivory:    #f4f1ea;
+  --slate-300:#c3cbdc;
+  --slate-400:#8a97b4;
+  --slate-500:#5c6885;
+
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius: 4px;
+  --container: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--navy-950);
+  color: var(--slate-300);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ivory);
+  margin: 0 0 0.5em;
+  font-weight: 600;
+}
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-300); font-weight: 600; margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold-500); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--radius); font-weight: 600;
+  font-size: 14.5px; cursor: pointer; border: 1px solid transparent; transition: all .2s ease;
+}
+.btn-gold { background: linear-gradient(135deg, var(--gold-300), var(--gold-500)); color: var(--navy-950); }
+.btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-outline { border-color: rgba(244,241,234,0.25); color: var(--ivory); }
+.btn-outline:hover { border-color: var(--gold-500); color: var(--gold-300); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(6,10,19,0.86); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212,175,55,0.14);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+.brand-text .name { font-family: var(--font-display); color: var(--ivory); font-size: 19px; font-weight: 700; }
+.brand-text .tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-300); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--slate-300); }
+.nav-links a:hover { color: var(--ivory); }
+
+@media (max-width: 800px) { .nav-links { display: none; } }
+
+.hero {
+  padding: 120px 0 90px;
+  background:
+    radial-gradient(ellipse at 18% 20%, rgba(36,81,196,0.28), transparent 55%),
+    radial-gradient(ellipse at 82% 78%, rgba(212,175,55,0.14), transparent 50%),
+    var(--navy-950);
+}
+.hero-inner { max-width: 760px; }
+.hero h1 { font-size: 46px; line-height: 1.15; margin-bottom: 20px; }
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p.lead { font-size: 18px; color: var(--slate-300); max-width: 580px; margin-bottom: 34px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 46px; }
+.hero-stats { display: flex; gap: 46px; flex-wrap: wrap; }
+.hero-stats div strong { display:block; font-family: var(--font-display); font-size: 28px; color: var(--ivory); }
+.hero-stats div span { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--slate-400); }
+
+section { padding: 88px 0; }
+.section-head { max-width: 640px; margin-bottom: 50px; }
+.section-head h2 { font-size: 32px; }
+.section-alt { background: var(--navy-900); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+@media (max-width: 900px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--navy-800); border: 1px solid rgba(212,175,55,0.12);
+  border-radius: var(--radius); padding: 32px 28px; transition: all .2s ease;
+}
+.card:hover { border-color: rgba(212,175,55,0.4); transform: translateY(-3px); }
+.card .num { font-family: var(--font-display); color: var(--gold-500); font-size: 13px; margin-bottom: 12px; }
+.card h3 { font-size: 19px; margin-bottom: 10px; }
+.card p { font-size: 14.5px; color: var(--slate-400); margin: 0; }
+
+.pf-card {
+  display: block; background: var(--navy-800); border: 1px solid rgba(212,175,55,0.12);
+  border-radius: var(--radius); padding: 30px; height: 100%;
+}
+.pf-card:hover { border-color: var(--gold-500); }
+.pf-card .industry { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-300); font-weight: 700; margin-bottom: 12px; display:block; }
+.pf-card h3 { font-size: 21px; margin-bottom: 6px; }
+.pf-card .tagline { font-size: 13.5px; color: var(--slate-400); margin-bottom: 14px; }
+.pf-card p.summary { font-size: 14px; color: var(--slate-400); }
+.pf-card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip { font-size: 11px; padding: 5px 10px; border-radius: 100px; border: 1px solid rgba(196,175,55,0.25); color: var(--slate-300); }
+
+.cta-band {
+  background: linear-gradient(120deg, var(--navy-900), var(--blue-500) 220%);
+  border-top: 1px solid rgba(212,175,55,0.15); border-bottom: 1px solid rgba(212,175,55,0.15);
+  text-align: center;
+}
+.cta-band h2 { font-size: 30px; margin-bottom: 12px; }
+.cta-band p { color: var(--slate-300); margin-bottom: 28px; }
+
+.site-footer { background: var(--navy-900); border-top: 1px solid rgba(212,175,55,0.14); padding: 60px 0 26px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+@media (max-width: 800px){ .footer-grid { grid-template-columns: 1fr; } }
+.footer-grid h4 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--gold-300); margin-bottom: 16px; }
+.footer-grid ul { list-style:none; margin:0; padding:0; display:grid; gap: 10px; }
+.footer-grid a { font-size: 14px; color: var(--slate-400); }
+.footer-grid a:hover { color: var(--ivory); }
+.footer-brand p { font-size: 14px; color: var(--slate-400); max-width: 320px; margin-top: 14px; }
+.footer-bottom { border-top: 1px solid rgba(212,175,55,0.1); padding-top: 22px; font-size: 13px; color: var(--slate-500); }
