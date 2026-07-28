@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V T Mohit — Senior Full Stack | CRM Platform Engineer | Fintech Solutions Specialist</title>
+<title>V T MOHIT — Senior Full Stack | CRM Platform Engineer | Fintech Solutions Specialist</title>
 <meta name="description" content="Full Stack PHP Developer specializing in Fintech CRM and ERP solutions. 4+ years engineering scalable business platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,19 +53,20 @@
       </div>
 
       <div class="hero-visual reveal">
-        <div class="orbit-card">
-          <div class="orbit-ring ring-1"></div>
-          <div class="orbit-ring ring-2"></div>
-          <div class="core-card">
-            <div class="core-avatar">VT</div>
-            <div class="core-name">V T Mohit</div>
-            <div class="core-role">Senior Full Stack Engineer</div>
+        <div class="type-panel">
+          <div class="type-panel-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="type-panel-label">whoami</span>
           </div>
-          <div class="float-chip chip-1">Laravel</div>
-          <div class="float-chip chip-2">Fintech CRM</div>
-          <div class="float-chip chip-3">QuickBooks API</div>
-          <div class="float-chip chip-4">ERP Systems</div>
-          <div class="float-chip chip-5">MySQL</div>
+          <div class="type-panel-body">
+            <div class="type-avatar">VT</div>
+            <div class="type-name">V T Mohit</div>
+            <div class="type-line">
+              <span class="type-prefix">&gt;</span>
+              <span id="typedRole" class="type-role"></span><span class="type-cursor">&#8203;</span>
+            </div>
+            <div class="type-sub">4+ years &middot; solo-shipped fintech CRM</div>
+          </div>
         </div>
       </div>
     </div>
@@ -188,6 +189,33 @@
 </footer>
 
 <script>
+  // Typewriter role rotator
+  const roles = [
+    "Senior Full Stack Engineer",
+    "CRM Platform Engineer",
+    "Fintech Solutions Specialist",
+    "Laravel &amp; PHP Developer",
+    "API Integration Specialist"
+  ];
+  const typedEl = document.getElementById('typedRole');
+  if (typedEl) {
+    let ri = 0, ci = 0, deleting = false;
+    const tick = () => {
+      const full = roles[ri];
+      if (!deleting) {
+        ci++;
+        typedEl.textContent = full.slice(0, ci);
+        if (ci === full.length) { deleting = true; setTimeout(tick, 1400); return; }
+      } else {
+        ci--;
+        typedEl.textContent = full.slice(0, ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+      }
+      setTimeout(tick, deleting ? 32 : 55);
+    };
+    tick();
+  }
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
